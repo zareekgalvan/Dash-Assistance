@@ -3577,6 +3577,7 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/regexp/flags.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/fontsize.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/fontcolor.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/tmeasday_check-npm-versions/0.2.0/npm/node_modules/semver/semver.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/big.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/sup.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/small.js" />
@@ -8604,6 +8605,7 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/regexp/flags.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/fontsize.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/fontcolor.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/tmeasday_check-npm-versions/0.2.0/npm/node_modules/semver/semver.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/big.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/sup.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/core-js/library/fn/string/small.js" />
