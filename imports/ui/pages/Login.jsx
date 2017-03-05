@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import LoginRegisterForm from '../components/LoginRegisterForm.jsx';
+import LoginForm from '../components/LoginForm.jsx';
 
 class Login extends Component {
     getRegisterLink() {
@@ -34,11 +34,9 @@ class Login extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-md-6 col-md-offset-3">
                     <h1>Login</h1>
-                    <LoginRegisterForm submitBtnLabel="Login" submitAction={this.loginWithPassword}/>
+                    <LoginForm submitBtnLabel="Login" submitAction={this.loginWithPassword}/>
                     {this.getRegisterLink()}
-                </div>
             </div>
         );
     }
