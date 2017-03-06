@@ -15,16 +15,17 @@ class EditUSer extends Component {
 	editUser(event) {
 		event.preventDefault();
 
-		const profile = getUser();
+		//const data = getUser();
 
-
+		//Meteor.users.update(Meteor.userId(), {$set: {profile: data}})
+		console.log('Editando');
 	}
 
 	render() {
 		return (
 			<div className="row">
 				<h1>Edit User</h1>
-				<EditUserForm submitBtnLabel="Edit" submitAction={this.editUser}/>
+				<EditUserForm submitBtnLabel="Edit" submitAction={this.editUser} UserInfo={this.getUser}/>
 			</div>
 		);
 	}
