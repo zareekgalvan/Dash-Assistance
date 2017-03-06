@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
 
-import LoginRegisterForm from '../components/RegisterForm.jsx';
+import RegisterForm from '../components/RegisterForm.jsx';
 
 class Register extends Component {
     getLoginLink() {
@@ -41,7 +41,18 @@ class Register extends Component {
             Accounts.createUser(
                 {
                     email: email,
-                    password: password
+                    password: password,
+                    profile : {
+                        name: name,
+                        address: address,
+                        city: city,
+                        state: state,
+                        phone: phone,
+                        company: company,
+                        car_model: car_model,
+                        car_agency: car_agency,
+                        car_name: car_name
+                    }
                 },
 
                 (error) => {
@@ -56,14 +67,25 @@ class Register extends Component {
     }
 
     render() {
-        return (
-            <div className="row">
-                <h1>Register</h1>
-                <RegisterForm submitBtnLabel="Register" submitAction={this.createUser}/>
-                {this.getLoginLink()}
-                {this.props.currentUser}
-            </div>
-        );
+
+        if (this.props.currentUser) {
+            let currentUserProfile = this.props.currentUser.profile;
+
+            return (
+                <h1>
+                    {currentUserProfile['name']}
+                </h1>
+            );
+        } else {
+            return (
+                <div className="row">
+                    <h1>Register</h1>
+                    <RegisterForm submitBtnLabel="Register" submitAction={this.createUser}/>
+                    {this.getLoginLink()}
+                    {this.props.currentUser}
+                </div>
+            );
+        }
     }
 }
 
