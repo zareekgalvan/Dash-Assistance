@@ -2,9 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
-import { browserHistory } from 'react-router';
 
-import LoginRegisterForm from '../components/LoginRegisterForm.jsx';
+import LoginRegisterForm from '../components/RegisterForm.jsx';
 
 class Register extends Component {
     getLoginLink() {
@@ -20,36 +19,60 @@ class Register extends Component {
 
         const
             email = $('#email').val(),
-            password = $('#password').val().trim()
+            password = $('#password').val().trim(),
+            confirm_password = $('#confirm-password').val().trim(),
+            name = $('#name').val(),
+            address = $('#address').val(),
+            city = $('#city').val(),
+            state = $('#state').val(),
+            phone = $('#phone').val(),
+            company = $('#company').val(),
+            car_model = $('#car-model').val(),
+            car_name = $('#car-name').val(),
+            car_agency = $('#car-agency').val()
             ;
 
-        Accounts.createUser(
-            {
-                email: email,
-                password: password
-            },
+        if (confirm_password !== password) {
+            alert("Passwords do not match, please try again");
 
-            (error) => {
-                if (error) {
-                    console.error("there was an error: ", error);
-                } else {
-                    console.log('User Creates Succesfully');
-                };
-            }
-        );
+            $('#password').val("");
+            $('#confirm-password').val("");
+        } else {
+            Accounts.createUser(
+                {
+                    email: email,
+                    password: password
+                },
+
+                (error) => {
+                    if (error) {
+                        console.error("there was an error: ", error);
+                    } else {
+                        console.log('User Creates Succesfully');
+                    };
+                }
+            );
+        }
     }
 
     render() {
         return (
             <div className="row">
-                <div className="col-md-6 col-md-offset-3">
-                    <h1>Register</h1>
-                    <LoginRegisterForm submitBtnLabel="Register" submitAction={this.createUser}/>
-                    {this.getLoginLink()}
-                </div>
+                <h1>Register</h1>
+                <RegisterForm submitBtnLabel="Register" submitAction={this.createUser}/>
+                {this.getLoginLink()}
+                {this.props.currentUser}
             </div>
         );
     }
 }
 
-export default Register
+Register.PropTypes = {
+    currentUser: PropTypes.object,
+};
+
+export default Register = createContainer(() => {
+    return {
+        currentUser: Meteor.user(),
+    };
+}, Register);
