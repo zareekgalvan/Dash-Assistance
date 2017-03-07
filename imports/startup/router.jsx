@@ -4,15 +4,17 @@ import { Router, Route, browserHistory } from 'react-router';
 import App from '../ui/components/App.jsx';
 import Login from '../ui/pages/Login.jsx';
 import Register from '../ui/pages/Register.jsx';
-import EditUSer from '../ui/pages/EditUser.jsx';
+import EditUser from '../ui/pages/EditUser.jsx';
 import NotFound from '../ui/pages/NotFound.jsx';
+import UserProfile from '../ui/pages/UserProfile.jsx';
 
 export const renderRoutes = () => (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
-            <Route path="/edituser" component={EditUSer}/>
+            <Route path="/profile" component={UserProfile}/>
+            <Route path="/edit-profile" component={EditUser}/>
             <Route path="/*" component={NotFound}/>
         </Route>
     </Router>

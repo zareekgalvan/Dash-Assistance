@@ -7,10 +7,25 @@ import AppHeader from './AppHeader.jsx';
 
 class App extends Component {
     showUserNav(){
-        return  <ul className="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-        </ul>;
+        if (this.props.currentUser) {
+            return  (
+                <ul className="nav navbar-nav navbar-right">
+                    <li><a href="/profile">Profile</a></li>
+                    <li><button className="btn btn-primary" onClick={this.logout}>Logout</button></li>
+                </ul>
+            );
+        } else {
+            return  (
+                <ul className="nav navbar-nav navbar-right">
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+            );
+        }
+    }
+
+    logout() {
+        Meteor.logout();
     }
 
     render() {
@@ -27,6 +42,12 @@ class App extends Component {
     }
 }
 
+App.PropTypes = {
+    currentUser: PropTypes.object,
+};
+
 export default App = createContainer(() => {
-    return {};
+    return {
+        currentUser: Meteor.user(),
+    };
 }, App);

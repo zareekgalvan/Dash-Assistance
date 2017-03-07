@@ -42,7 +42,7 @@ class RegisterForm extends Component {
                         <input placeholder="Phone" type="text" id="phone"  className="form-control" required/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="company">Ensurance Company:</label>
+                        <label htmlFor="company">Insurance Company:</label>
                         <input placeholder="Ensurance Company" type="text" id="company" className="form-control" required/>
                     </div>
                     <div className="form-group">
@@ -51,7 +51,7 @@ class RegisterForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="car-name">Car Name:</label>
-                        <input placeholder="Car Name" type="text" id="car-model" className="form-control" required/>
+                        <input placeholder="Car Name" type="text" id="car-name" className="form-control" required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="car-agency">Car Agency:</label>

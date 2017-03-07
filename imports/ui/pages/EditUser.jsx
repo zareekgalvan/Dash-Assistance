@@ -6,18 +6,35 @@ import EditUserForm from '../components/EditUserForm.jsx';
 
 class EditUser extends Component {
 
-	getUser() {
-		return (
-			Meteor.user()
-		);
-	}
-
 	editUser(event) {
 		event.preventDefault();
 
-		//const data = getUser();
+		let user = Meteor.user().profile;
 
-		//Meteor.users.update(Meteor.userId(), {$set: {profile: data}})
+        const
+            address = $('#address').val(),
+            city = $('#city').val(),
+            state = $('#state').val(),
+            phone = $('#phone').val(),
+            company = $('#company').val(),
+            car_model = $('#car-model').val(),
+            car_name = $('#car-name').val(),
+            car_agency = $('#car-agency').val()
+            ;
+
+		let data = {
+            name: user.name,
+            address: address,
+            city: city,
+            state: state,
+            phone: phone,
+            company: company,
+            car_model: car_model,
+            car_agency: car_agency,
+            car_name: car_name,
+		};
+
+		Meteor.users.update(Meteor.userId(), {$set: {profile: data}})
 		console.log('Editando');
 	}
 
@@ -25,7 +42,7 @@ class EditUser extends Component {
 		return (
 			<div className="row">
 				<h1>Edit User</h1>
-				<EditUserForm submitBtnLabel="Edit" submitAction={this.editUser} userInfo={this.getUser()}/>
+				<EditUserForm submitBtnLabel="Edit" submitAction={this.editUser}/>
 			</div>
 		);
 	}

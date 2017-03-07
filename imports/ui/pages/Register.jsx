@@ -51,7 +51,7 @@ class Register extends Component {
                         company: company,
                         car_model: car_model,
                         car_agency: car_agency,
-                        car_name: car_name
+                        car_name: car_name,
                     }
                 },
 
