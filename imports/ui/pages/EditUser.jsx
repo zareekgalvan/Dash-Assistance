@@ -4,11 +4,11 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import EditUserForm from '../components/EditUserForm.jsx';
 
-class EditUSer extends Component {
+class EditUser extends Component {
 
 	getUser() {
 		return (
-			this.props.currentUser.profile
+			Meteor.user()
 		);
 	}
 
@@ -25,7 +25,7 @@ class EditUSer extends Component {
 		return (
 			<div className="row">
 				<h1>Edit User</h1>
-				<EditUserForm submitBtnLabel="Edit" submitAction={this.editUser} UserInfo={this.getUser}/>
+				<EditUserForm submitBtnLabel="Edit" submitAction={this.editUser} userInfo={this.getUser()}/>
 			</div>
 		);
 	}
