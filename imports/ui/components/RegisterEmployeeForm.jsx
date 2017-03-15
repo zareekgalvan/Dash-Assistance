@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
-class RegisterEmployeeForm extends Component {
+export default class RegisterEmployeeForm extends Component {
     render() {
         return (
             <form onSubmit={this.props.submitAction}>
@@ -27,8 +27,6 @@ class RegisterEmployeeForm extends Component {
         );
     }
 }
-
-export default RegisterEmployeeForm;
 
 RegisterEmployeeForm.PropTypes = {
     submitAction: PropTypes.func.isRequired,
