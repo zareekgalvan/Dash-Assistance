@@ -19,6 +19,7 @@ class App extends Component {
                 <ul className="nav navbar-nav navbar-right">
                     <li><a href="/login">Login</a></li>
                     <li><a href="/register">Register</a></li>
+                    <li><a href="/registeremployee">Register Employee</a></li>
                 </ul>
             );
         }
