@@ -26,7 +26,8 @@ class Login extends Component {
             if (error) {
                 console.error('Login Error!!', error);
             } else {
-                console.log('Login Successfully');
+                console.log('LOGGED IN SUCCESSFULLY!!');
+                console.log(JSON.stringify(Meteor.user()));
             }
         });
     }

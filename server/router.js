@@ -8,6 +8,7 @@ module.exports = function(app) {
   	apiRoutes.get('/helloworld', _ourController.helloworld);
 	apiRoutes.get('/saySomething', _ourController.saySomething);
 	apiRoutes.post('/postSomething', _ourController.postSomething);
+	apiRoutes.post('/login', _ourController.login);
 
   	app.use('/api', apiRoutes);
 }
