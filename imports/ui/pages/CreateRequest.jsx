@@ -61,7 +61,7 @@ CreateRequest.propTypes = {
 };
 
 export default CreateRequest = createContainer(() => {
-    Meteor.subscribe('request');
+    Meteor.subscribe('requests');
 
     return {
         requests: Requests.find({}).fetch(),

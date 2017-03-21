@@ -21,6 +21,7 @@ class App extends Component {
                     <li><a href="/register">Register</a></li>
                     <li><a href="/registeremployee">Register Employee</a></li>
                     <li><a href="/createrequest">Create Request</a></li>
+                    <li><a href="/showrequests">Show Requests</a></li>
                 </ul>
             );
         }

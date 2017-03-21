@@ -9,6 +9,8 @@ import RegisterEmployee from '../ui/pages/RegisterEmployee.jsx';
 import NotFound from '../ui/pages/NotFound.jsx';
 import UserProfile from '../ui/pages/UserProfile.jsx';
 import CreateRequest from '../ui/pages/CreateRequest.jsx';
+import ShowRequests from '../ui/pages/ShowRequests';
+
 
 export const renderRoutes = () => (
     <Router history={browserHistory}>
@@ -19,6 +21,7 @@ export const renderRoutes = () => (
             <Route path="/edit-profile" component={EditUser}/>
             <Route path="/registeremployee" component={RegisterEmployee}/>
             <Route path="/createrequest" component={CreateRequest}/>
+            <Route path="/showrequests" component={ShowRequests}/>
             <Route path="/*" component={NotFound}/>
         </Route>
     </Router>
