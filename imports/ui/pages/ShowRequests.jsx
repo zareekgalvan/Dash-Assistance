@@ -7,6 +7,13 @@ import RequestsDashboard from '../components/RequestsDashboard';
 
 class ShowRequests extends Component {
 
+        toggleChecked() {
+        // Set the checked property to the opposite of its current value
+        Tasks.update(this.props.task._id, {
+        $set: { checked: !this.props.task.checked },
+        });
+    }
+
     renderRequests() {
         return this.props.requests.map((request) => (
         <RequestsDashboard key={request._id} request={request} />
@@ -28,7 +35,8 @@ class ShowRequests extends Component {
                         <th>Accident Address</th> 
                         <th>Insurance Company</th>
                         <th>Policy Number</th>
-                        <th>Request Status</th>
+                        <th>Completed</th>
+                        <th>Mark as Complete</th>
                     </tr>
                     {this.renderRequests()}
                 </tbody>

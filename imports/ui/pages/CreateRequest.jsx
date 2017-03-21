@@ -24,7 +24,7 @@ class CreateRequest extends Component {
             notes = $("#notes").val(),
             assignedEmployee = "none",
             accidentTime = new Date(),
-            status = "unassigned"
+            status = "false"
 
         Requests.insert({
             name : name,
