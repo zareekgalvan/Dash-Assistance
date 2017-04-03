@@ -27,17 +27,19 @@ class ShowRequests extends Component {
             <h1>Request List</h1>
             </header>
 
-            <table style={{border: "1px solid black"}} cellPadding="10">
-                <tbody>
+            <table style={{border: "1px solid black"}} cellPadding="10" className="table">
+                <thead className="thead-inverse">
                     <tr>
                         <th>Customer Name</th>
                         <th>Phone</th>
-                        <th>Accident Address</th> 
+                        <th>Accident Address</th>
                         <th>Insurance Company</th>
                         <th>Policy Number</th>
                         <th>Completed</th>
                         <th>Mark as Complete</th>
                     </tr>
+                </thead>
+                <tbody>
                     {this.renderRequests()}
                 </tbody>
             </table>

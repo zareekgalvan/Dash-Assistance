@@ -2,7 +2,7 @@
  * Created by agvaldezc on 4/2/17.
  */
 import { Meteor } from 'meteor/meteor';
-import { Api } from '../../imports/api/apitest.js';
+import { Api } from '../../imports/api/api.js';
 
 exports.helloworld = function(req, res, next) {
     res.status(200).json({
@@ -45,11 +45,23 @@ exports.login = function(req, res, next) {
                 }
             });
 
-        /*json = JSON.stringify(Meteor.users.find({}).fetch());
+        next();
 
-        var parsedJSON = JSON.parse(json);
+    }).run();
+}
 
-        res.json(parsedJSON[0]);*/
+exports.sendRequest = function (req, res, next) {
+    var Fiber = require('fibers');
+
+    Fiber(function() {
+        Meteor.call('api.sendRequest', {userId: req.body.userId, latitude: req.body.latitude, longitude: req.body.longitude},
+            (error, result) => {
+                if (error) {
+                    res.json(error);
+                } else {
+                    res.json({requestId: result});
+                }
+            });
 
         next();
 

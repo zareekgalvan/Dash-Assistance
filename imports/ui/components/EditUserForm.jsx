@@ -33,6 +33,10 @@ class EditUserForm extends Component {
                             <input placeholder="Ensurance Company" type="text" id="company" defaultValue={this.props.currentUser.profile.company} className="form-control" required/>
                         </div>
                         <div className="form-group">
+                            <label htmlFor="policy">Policy Number:</label>
+                            <input placeholder="Policy Number" type="text" id="policy" defaultValue={this.props.currentUser.profile.policy_number} className="form-control" required/>
+                        </div>
+                        <div className="form-group">
                             <label htmlFor="car-model">Car Model:</label>
                             <input placeholder="Car Model" type="text" id="car-model" defaultValue={this.props.currentUser.profile.car_model} className="form-control" required/>
                         </div>

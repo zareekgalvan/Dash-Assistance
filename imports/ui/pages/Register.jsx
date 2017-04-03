@@ -30,7 +30,8 @@ class Register extends Component {
             company = $('#company').val(),
             car_model = $('#car-model').val(),
             car_name = $('#car-name').val(),
-            car_agency = $('#car-agency').val()
+            car_agency = $('#car-agency').val(),
+            policy_number = $('#policy').val()
             ;
 
         if (confirm_password !== password) {
@@ -53,6 +54,7 @@ class Register extends Component {
                         car_model: car_model,
                         car_agency: car_agency,
                         car_name: car_name,
+                        policy_number: policy_number
                     }
                 },
 

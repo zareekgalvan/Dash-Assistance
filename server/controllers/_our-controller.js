@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Tests } from '../../imports/api/apitest.js';
+import { Tests } from '../../imports/api/api.js';
 import { Accounts } from 'meteor/accounts-base';
 
 exports.helloworld = function(req, res, next) {

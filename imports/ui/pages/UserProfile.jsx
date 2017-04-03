@@ -19,6 +19,7 @@ class UserProfile extends Component {
                         <li>Car Model: {this.props.currentUser.profile.car_model}</li>
                         <li>Car Agency: {this.props.currentUser.profile.car_agency}</li>
                         <li>Car Name: {this.props.currentUser.profile.car_name}</li>
+                        <li>Policy Number: {this.props.currentUser.profile.policy_number}</li>
                     </ul>
 
                     <a href="/edit-profile">Edit Profile Information</a>
