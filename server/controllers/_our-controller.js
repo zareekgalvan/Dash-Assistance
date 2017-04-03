@@ -12,6 +12,7 @@ exports.saySomething = function(req, res, next) {
   	message: "hi"
   })
 }
+
 exports.postSomething = function(req, res, next) {
   res.send({id: req.body.id, name: req.body.name, description: req.body.description});
 
@@ -44,4 +45,6 @@ exports.login = function(req, res, next) {
     res.json(parsedJSON[0]);
 
   }).run();
+
+  next();
 }

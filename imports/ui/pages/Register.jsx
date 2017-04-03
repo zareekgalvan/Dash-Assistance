@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
+import { browserHistory } from 'react-router';
 
 import RegisterForm from '../components/RegisterForm.jsx';
 
@@ -71,11 +72,8 @@ class Register extends Component {
         if (this.props.currentUser) {
             let currentUserProfile = this.props.currentUser.profile;
 
-            return (
-                <h1>
-                    {currentUserProfile['name']}
-                </h1>
-            );
+            browserHistory.push('/profile');
+
         } else {
             return (
                 <div className="row">

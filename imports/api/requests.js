@@ -6,6 +6,6 @@ export const Requests = new Mongo.Collection('requests');
 
 if (Meteor.isServer) {
     Meteor.publish('requests', function tasksPublication() {
-        return Requests.find({});
+        return Requests.find({user});
     })
 }

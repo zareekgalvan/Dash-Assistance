@@ -15,12 +15,12 @@ class Login extends Component {
     loginWithPassword(event) {
         event.preventDefault();
 
-        const email = $('#email').val(),
+        const username = $('#email').val(),
               password = $('#password').val().trim()
             ;
 
         Meteor.loginWithPassword(
-            email,
+            username,
             password
         , (error) => {
             if (error) {

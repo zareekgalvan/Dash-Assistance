@@ -1,11 +1,24 @@
 import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
-export const Tests = new Mongo.Collection('tests');
+export const Api = new Mongo.Collection('api');
 
 Meteor.methods({
-	'tests.insert'(data) {
-		Tests.insert(data);
-		console.log(data);
-	}
+    'api.login'(data) {
+
+        var username = data['username'];
+        var password = data['password'];
+
+        var user = Accounts.findUserByEmail(username);
+
+        var result = Accounts._checkPassword(user, password);
+
+        if (result['error']) {
+        	result['userId'] = "";
+		}
+
+        return result;
+
+    }
 });

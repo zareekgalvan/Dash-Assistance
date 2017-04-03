@@ -1,14 +1,14 @@
 const express = require('express');
-const _ourController = require('./controllers/_our-controller');
+const methodsController = require('./controllers/_methods-controller.js');
 
 
 module.exports = function(app) {
 	const apiRoutes = express.Router();
   	//routes will go here
-  	apiRoutes.get('/helloworld', _ourController.helloworld);
-	apiRoutes.get('/saySomething', _ourController.saySomething);
-	apiRoutes.post('/postSomething', _ourController.postSomething);
-	apiRoutes.post('/login', _ourController.login);
+  	apiRoutes.get('/helloworld', methodsController.helloworld);
+	apiRoutes.get('/saySomething', methodsController.saySomething);
+	apiRoutes.post('/postSomething', methodsController.postSomething);
+	apiRoutes.post('/login', methodsController.login);
 
   	app.use('/api', apiRoutes);
 }
