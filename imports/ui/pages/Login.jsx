@@ -27,6 +27,7 @@ class Login extends Component {
             } else {
                 console.log('LOGGED IN SUCCESSFULLY!!');
                 console.log(JSON.stringify(Meteor.user()));
+                window.location.replace("/profile");
             }
         });
     }
