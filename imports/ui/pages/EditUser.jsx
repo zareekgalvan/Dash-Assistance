@@ -17,10 +17,11 @@ class EditUser extends Component {
             state = $('#state').val(),
             phone = $('#phone').val(),
             company = $('#company').val(),
+            car_brand = $('#car-brand').val(),
             car_model = $('#car-model').val(),
-            car_name = $('#car-name').val(),
-            car_agency = $('#car-agency').val(),
-            policy_number = $('#policy').val()
+            car_year = $('#car-year').val(),
+            policy_number = $('#policy').val(),
+            license_plates = $('#license-plates').val()
             ;
 
 		let data = {
@@ -30,21 +31,24 @@ class EditUser extends Component {
             state: state,
             phone: phone,
             company: company,
+            car_brand: car_brand,
             car_model: car_model,
-            car_agency: car_agency,
-            car_name: car_name,
-			policy_number: policy_number
+            car_year: car_year,
+			policy_number: policy_number,
+            license_plates: license_plates
 		};
 
 		Meteor.users.update(Meteor.userId(), {$set: {profile: data}})
 		console.log('Editando');
+
+        window.location.replace("/profile");
 	}
 
 	render() {
 		return (
 			<div className="row">
-				<h1>Edit User</h1>
-				<EditUserForm submitBtnLabel="Edit" submitAction={this.editUser}/>
+				<h1 className="form_title">Edit User Information</h1>
+				<EditUserForm submitBtnLabel="Save" cancelBtnLabel="Cancel" submitAction={this.editUser}/>
 			</div>
 		);
 	}

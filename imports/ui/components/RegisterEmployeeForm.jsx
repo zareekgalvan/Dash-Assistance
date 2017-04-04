@@ -6,22 +6,28 @@ export default class RegisterEmployeeForm extends Component {
     render() {
         return (
             <form onSubmit={this.props.submitAction}>
-                <div className="col-md-6">
+                <div className="col-md-4"></div>
+                <div className="col-md-4 custom_form">
+
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
                         <input placeholder="Name" type="text" id="name" className="form-control" required/>
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
                         <input placeholder="Email" type="email" id="email" className="form-control" required/>
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="password">Phone:</label>
                         <input placeholder="Phone" type="tel" id="phone" className="form-control" required/>
                     </div>
-                </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary">{this.props.submitBtnLabel}</button>
+
+                    <div className="col-md-4"></div>
+                    <div className="form-group col-md-4">
+                        <button type="submit" className="btn btn-primary btn-block submit_button">{this.props.submitBtnLabel}</button>
+                    </div>
                 </div>
             </form>
         );

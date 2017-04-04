@@ -11,7 +11,21 @@ class Register extends Component {
         let loginMsg = 'Already have an account?';
 
         return (
-            <p>{loginMsg} <a href="/login">Sign In</a></p>
+            <p className="register_loginLink">{loginMsg} <a href="/login">Log In</a></p>
+        );
+    }
+
+    getInsuranceCompanies() {
+        let option1 = "HSBC";
+        let option2 = "AXA";
+        let option3 = "Banorte";
+
+        return (
+            <select class="form-control" id="sel1">
+                <option>option1</option>
+                <option>option2</option>
+                <option>option3</option>
+            </select>
         );
     }
 
@@ -28,10 +42,11 @@ class Register extends Component {
             state = $('#state').val(),
             phone = $('#phone').val(),
             company = $('#company').val(),
+            car_brand = $('#car-brand').val(),
             car_model = $('#car-model').val(),
-            car_name = $('#car-name').val(),
-            car_agency = $('#car-agency').val(),
+            car_year = $('#car-year').val(),
             policy_number = $('#policy').val()
+            license_plates = $('#license-plates').val()
             ;
 
         if (confirm_password !== password) {
@@ -51,10 +66,11 @@ class Register extends Component {
                         state: state,
                         phone: phone,
                         company: company,
+                        car_brand: car_brand,
                         car_model: car_model,
-                        car_agency: car_agency,
-                        car_name: car_name,
-                        policy_number: policy_number
+                        car_year: car_year,
+                        policy_number: policy_number,
+                        license_plates: license_plates
                     }
                 },
 
@@ -62,7 +78,7 @@ class Register extends Component {
                     if (error) {
                         console.error("there was an error: ", error);
                     } else {
-                        console.log('User Creates Succesfully');
+                        console.log('User Created Succesfully');
                     };
                 }
             );
@@ -79,10 +95,8 @@ class Register extends Component {
         } else {
             return (
                 <div className="row">
-                    <h1>Register</h1>
-                    <RegisterForm submitBtnLabel="Register" submitAction={this.createUser}/>
-                    {this.getLoginLink()}
-                    {this.props.currentUser}
+                    <h1 className="form_title">Register as a new user</h1>
+                    <RegisterForm submitBtnLabel="Register" submitAction={this.createUser} loginLink={this.getLoginLink()} insuranceCompanies={this.getInsuranceCompanies()}/>
                 </div>
             );
         }
