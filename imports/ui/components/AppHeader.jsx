@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
+import '../styles/customStyles.css'
 
 class AppHeader extends Component {
     render() {
         return (
-            <nav className="navbar navbar-inverse">
+            <nav className="navbar navbar-inverse custom_navbar">
                 <div className="container">
                     <div className="navbar-header">
                         <a className="navbar-brand" href="/">{this.props.appTitle}</a>
