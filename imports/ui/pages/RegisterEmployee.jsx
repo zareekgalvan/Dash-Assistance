@@ -13,11 +13,13 @@ class RegisterEmployee extends Component {
             name = $("#name").val(),
             email = $("#email").val(),
             phone = $("#phone").val();
+            company = ""
 
         Employees.insert({
             name : name,
             email: email,
-            phone : phone
+            phone : phone,
+            company : company
         });
 
         console.log(Employees.find({}).fetch());
@@ -26,7 +28,7 @@ class RegisterEmployee extends Component {
     render() {
         return (
             <div className="row">
-                    <h1>Register an Employee</h1>
+                    <h1 className="form_title">Register an Employee</h1>
                     <RegisterEmployeeForm submitBtnLabel="Register" submitAction={this.createEmployee}/>
             </div>
         );
