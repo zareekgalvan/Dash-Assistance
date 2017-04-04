@@ -24,7 +24,7 @@ class LoginForm extends Component {
 
                     <div className="col-xs-4"></div>
                     <div className="form-group col-xs-4">
-                        <button type="submit" className="btn btn-primary btn-block login_button">{this.props.submitBtnLabel}</button>
+                        <button type="submit" className="btn btn-primary btn-block submit_button">{this.props.submitBtnLabel}</button>
                     </div>
                 </div>
             </form>

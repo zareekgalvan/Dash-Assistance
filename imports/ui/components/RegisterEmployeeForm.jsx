@@ -26,7 +26,7 @@ export default class RegisterEmployeeForm extends Component {
 
                     <div className="col-md-4"></div>
                     <div className="form-group col-md-4">
-                        <button type="submit" className="btn btn-primary btn-block login_button">{this.props.submitBtnLabel}</button>
+                        <button type="submit" className="btn btn-primary btn-block submit_button">{this.props.submitBtnLabel}</button>
                     </div>
                 </div>
             </form>

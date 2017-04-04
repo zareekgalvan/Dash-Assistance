@@ -43,7 +43,7 @@ class Register extends Component {
             phone = $('#phone').val(),
             company = $('#company').val(),
             car_brand = $('#car-brand').val(),
-            car_mode = $('#car-model').val(),
+            car_model = $('#car-model').val(),
             car_year = $('#car-year').val(),
             policy_number = $('#policy').val()
             license_plates = $('#license-plates').val()
