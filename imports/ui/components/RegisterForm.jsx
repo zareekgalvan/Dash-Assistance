@@ -42,7 +42,7 @@ class RegisterForm extends Component {
                         <input placeholder="State" type="text" id="state" className="form-control" required/>
                     </div>
                     <div className="form-group">
-                        <label for="sel1">Insurance Company:</label>
+                        <label htmlFor="company">Insurance Company:</label>
                         <input placeholder="Insurance Company" type="text" id="company" className="form-control" required/>
                     </div>
                     <div className="form-group">

@@ -31,15 +31,17 @@ class EditUser extends Component {
             state: state,
             phone: phone,
             company: company,
+            car_brand: car_brand,
             car_model: car_model,
-            car_agency: car_agency,
-            car_name: car_name,
+            car_year: car_year,
 			policy_number: policy_number,
             license_plates: license_plates
 		};
 
 		Meteor.users.update(Meteor.userId(), {$set: {profile: data}})
 		console.log('Editando');
+
+        window.location.replace("/profile");
 	}
 
 	render() {
