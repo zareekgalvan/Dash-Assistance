@@ -15,6 +15,7 @@ class RegisterInsuranceCompany extends Component {
             confirm_password = $('#confirm-password').val().trim()
             companyName = $("#name").val(),
             phone = $("#phone").val()
+            type = "insurance-company"
             ;
 
         if (confirm_password !== password) {
@@ -30,7 +31,7 @@ class RegisterInsuranceCompany extends Component {
                     profile : {
                         companyName: companyName,
                         phone: phone,
-                        type: "insurance-company"
+                        type: type
                     }
                 },
 

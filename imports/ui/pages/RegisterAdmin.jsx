@@ -13,6 +13,7 @@ class RegisterAdmin extends Component {
             email = $('#email').val(),
             password = $('#password').val().trim(),
             confirm_password = $('#confirm-password').val().trim()
+            type = "admin"
             ;
 
         if (confirm_password !== password) {
@@ -26,7 +27,7 @@ class RegisterAdmin extends Component {
                     email: email,
                     password: password,
                     profile : {
-                        type: "admin"
+                        type: type
                     }
                 },
 
