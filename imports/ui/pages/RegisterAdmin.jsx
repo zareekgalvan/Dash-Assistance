@@ -1,13 +1,44 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Accounts } from 'meteor/accounts-base';
 
 import RegisterAdminForm from '../components/RegisterAdminForm.jsx';
 
 class RegisterAdmin extends Component {
     createAdmin(event){
         event.preventDefault();
-        console.log("click!")
+
+        const
+            email = $('#email').val(),
+            password = $('#password').val().trim(),
+            confirm_password = $('#confirm-password').val().trim()
+            ;
+
+        if (confirm_password !== password) {
+            alert("Passwords do not match, please try again");
+
+            $('#password').val("");
+            $('#confirm-password').val("");
+        } else {
+            Accounts.createUser(
+                {
+                    email: email,
+                    password: password,
+                    profile : {
+                        type: "admin"
+                    }
+                },
+
+                (error) => {
+                    if (error) {
+                        console.error("there was an error: ", error);
+                    } else {
+                        console.log('Administrator Registered Succesfully');
+                    };
+                }
+            );
+        }
     }
  
     render() {
@@ -20,4 +51,8 @@ class RegisterAdmin extends Component {
     }
 }
 
-export default RegisterAdmin
+export default RegisterAdmin = createContainer(() => {
+    return {
+        currentUser: Meteor.user(),
+    };
+}, RegisterAdmin);

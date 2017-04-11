@@ -70,7 +70,8 @@ class Register extends Component {
                         car_model: car_model,
                         car_year: car_year,
                         policy_number: policy_number,
-                        license_plates: license_plates
+                        license_plates: license_plates,
+                        type: "user"
                     }
                 },
 
