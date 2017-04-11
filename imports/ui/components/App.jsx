@@ -18,6 +18,7 @@ class App extends Component {
             return  (
                 <div>
                     <ul className="nav navbar-nav">
+                        <li><a style={{color: 'white'}} href="/registerinsurancecompany">Register Insurance Company</a></li>
                         <li><a style={{color: 'white'}} href="/registeremployee">Register Employee</a></li>
                         <li><a style={{color: 'white'}} href="/createrequest">Create Request</a></li>
                         <li><a style={{color: 'white'}} href="/showrequests">Show Requests</a></li>
