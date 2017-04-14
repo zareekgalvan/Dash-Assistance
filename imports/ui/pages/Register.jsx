@@ -46,7 +46,9 @@ class Register extends Component {
             car_model = $('#car-model').val(),
             car_year = $('#car-year').val(),
             policy_number = $('#policy').val()
-            license_plates = $('#license-plates').val()
+            license_plates = $('#license-plates').val(),
+            type = "user",
+            confirmed = "false"
             ;
 
         if (confirm_password !== password) {
@@ -70,7 +72,9 @@ class Register extends Component {
                         car_model: car_model,
                         car_year: car_year,
                         policy_number: policy_number,
-                        license_plates: license_plates
+                        license_plates: license_plates,
+                        type: type,
+                        confirmed: confirmed
                     }
                 },
 

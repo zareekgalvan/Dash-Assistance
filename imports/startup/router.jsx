@@ -10,6 +10,8 @@ import NotFound from '../ui/pages/NotFound.jsx';
 import UserProfile from '../ui/pages/UserProfile.jsx';
 import CreateRequest from '../ui/pages/CreateRequest.jsx';
 import ShowRequests from '../ui/pages/ShowRequests';
+import RegisterInsuranceCompany from '../ui/pages/RegisterInsuranceCompany.jsx'
+import RegisterAdmin from '../ui/pages/RegisterAdmin.jsx'
 
 
 export const renderRoutes = () => (
@@ -22,6 +24,8 @@ export const renderRoutes = () => (
             <Route path="/registeremployee" component={RegisterEmployee}/>
             <Route path="/createrequest" component={CreateRequest}/>
             <Route path="/showrequests" component={ShowRequests}/>
+            <Route path="/registerinsurancecompany" component={RegisterInsuranceCompany}/>
+            <Route path="/registeradministrator" component={RegisterAdmin}/>            
             <Route path="/*" component={NotFound}/>
         </Route>
     </Router>

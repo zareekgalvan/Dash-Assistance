@@ -34,12 +34,13 @@ class EditUser extends Component {
             car_brand: car_brand,
             car_model: car_model,
             car_year: car_year,
-			policy_number: policy_number,
-            license_plates: license_plates
+		policy_number: policy_number,
+            license_plates: license_plates,
+            type: user.type,
+            confirmed: user.confirmed
 		};
 
 		Meteor.users.update(Meteor.userId(), {$set: {profile: data}})
-		console.log('Editando');
 
         window.location.replace("/profile");
 	}
