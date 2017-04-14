@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
+import { Companies } from '../../api/companies.js';
 
 import RegisterInsuranceCompanyForm from '../components/RegisterInsuranceCompanyForm.jsx';
 
@@ -43,6 +44,12 @@ class RegisterInsuranceCompany extends Component {
                     };
                 }
             );
+
+            Companies.insert({
+                companyName: companyName,
+                email: email,
+                phone: phone,
+        });
         }
     }
  
@@ -57,6 +64,8 @@ class RegisterInsuranceCompany extends Component {
 }
 
 export default RegisterInsuranceCompany = createContainer(() => {
+    Meteor.subscribe('companies');
+
     return {
         currentUser: Meteor.user(),
     };

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
+import { Companies } from '../../api/companies.js';
 import { browserHistory } from 'react-router';
 
 import RegisterForm from '../components/RegisterForm.jsx';
@@ -16,17 +17,9 @@ class Register extends Component {
     }
 
     getInsuranceCompanies() {
-        let option1 = "HSBC";
-        let option2 = "AXA";
-        let option3 = "Banorte";
-
-        return (
-            <select class="form-control" id="sel1">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-        );
+        return this.props.companies.map((company) => (
+            <option key={company._id} value={company.companyName}>{company.companyName}</option>
+        ));
     }
 
     createUser(event) {
@@ -109,10 +102,14 @@ class Register extends Component {
 
 Register.PropTypes = {
     currentUser: PropTypes.object,
+    companies: PropTypes.array.isRequired
 };
 
 export default Register = createContainer(() => {
+    Meteor.subscribe('companies');
+
     return {
         currentUser: Meteor.user(),
+        companies: Companies.find().fetch()
     };
 }, Register);

@@ -21,8 +21,6 @@ class RegisterEmployee extends Component {
             phone : phone,
             company : company
         });
-
-        console.log(Employees.find({}).fetch());
     }
  
     render() {
