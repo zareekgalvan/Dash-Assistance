@@ -23,3 +23,4 @@ accounts-ui
 accounts-password
 react-meteor-data
 msavin:mongol
+session

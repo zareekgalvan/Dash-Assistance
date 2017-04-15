@@ -4,16 +4,9 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Requests } from '../../api/requests.js';
 
 import RequestsDashboard from '../components/RequestsDashboard';
+import ExpandedRequest from '../components/ExpandedRequest';
 
 class ShowRequests extends Component {
-
-        toggleChecked() {
-        // Set the checked property to the opposite of its current value
-        Tasks.update(this.props.task._id, {
-        $set: { checked: !this.props.task.checked },
-        });
-    }
-
     renderRequests() {
         return this.props.requests.map((request) => (
             <RequestsDashboard key={request._id} request={request} />
@@ -37,12 +30,14 @@ class ShowRequests extends Component {
                         <th>Policy Number</th>
                         <th>Completed</th>
                         <th>Mark as Complete</th>
+                        <th>Expand</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.renderRequests()}
                 </tbody>
             </table>
+            <ExpandedRequest />
         </div>
         );
     }
@@ -54,8 +49,8 @@ ShowRequests.propTypes = {
 
 export default ShowRequests = createContainer(() => {
     Meteor.subscribe('requests');
-
+    
     return {
-        requests: Requests.find({}).fetch(),
+        requests: Requests.find({"insuranceCompany" : "HSBC"}).fetch()
     };
 }, ShowRequests);
