@@ -15,6 +15,16 @@ class RequestsDashboard extends Component {
         event.preventDefault()
         Session.set('showModal', !Session.get('showModal'));
         Session.set('requestId', this.props.request._id)
+
+        var map = L.map('map').setView([25.657345, -100.40175], 10);
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	        maxZoom: 19,
+	        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo( map );
+
+        L.marker([25.657345, -100.40175]).addTo(map)
+        map.invalidateSize()
     }
 
     render() {
@@ -24,7 +34,6 @@ class RequestsDashboard extends Component {
             <tr>
                 <td>{this.props.request.name}</td>
                 <td>{this.props.request.phone}</td>
-                <td>{this.props.request.accidentAddress}</td>
                 <td>{this.props.request.insuranceCompany}</td>
                 <td>{this.props.request.policyNumber}</td>
                 <td>{this.props.request.status.toString()}</td>

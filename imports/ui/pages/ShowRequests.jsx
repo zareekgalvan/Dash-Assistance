@@ -25,7 +25,6 @@ class ShowRequests extends Component {
                     <tr>
                         <th>Customer Name</th>
                         <th>Phone</th>
-                        <th>Accident Address</th>
                         <th>Insurance Company</th>
                         <th>Policy Number</th>
                         <th>Completed</th>
@@ -51,6 +50,6 @@ export default ShowRequests = createContainer(() => {
     Meteor.subscribe('requests');
     
     return {
-        requests: Requests.find({"insuranceCompany" : "HSBC"}).fetch()
+        requests: Requests.find({"insuranceCompany" : "HSBC"}, {sort: {accidentTime: -1}}).fetch()
     };
 }, ShowRequests);
