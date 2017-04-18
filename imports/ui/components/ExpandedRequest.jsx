@@ -10,9 +10,39 @@ class ExpandedRequest extends Component {
         Session.set('requestId', "");
     }
 
+    componentDidUpdate(){
+        if (this.props.request[0] != null) {
+            var latitude = this.props.request[0]['latitude']
+            latitude = latitude.substring(9, latitude.length - 1)
+
+            var longitude = this.props.request[0]['longitude']
+            longitude = longitude.substring(9, longitude.length - 1)
+
+            this.context.map.setView([latitude, longitude], 5);
+
+            //this.context.map.removeLayer(this.context.marker)
+            this.context.marker = L.marker([latitude, longitude])
+            this.context.map.addLayer(this.context.marker)
+
+            this.context.map.invalidateSize()
+        }
+    }
+
+    componentDidMount(){
+        this.context.map = L.map('map').setView([0,0], 10);
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	        maxZoom: 19,
+	        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo( this.context.map );
+
+        this.context.map.invalidateSize()
+    }
+
     render() {
         //only show information if it is loaded
         if (this.props.request[0] != null) {
+            console.log(this.props.request[0])
             return (
                 <div id="requestModal" className="custom-modal" display="none" style={{overflow: scroll}}>
                     <div class="modal-dialog">
@@ -100,3 +130,8 @@ export default createContainer(() => {
     request: Requests.find({"_id" : Session.get('requestId')}).fetch()
   };
 }, ExpandedRequest)
+
+ExpandedRequest.contextTypes = {
+  map: PropTypes.object,
+  currentMarker: PropTypes.object
+};
