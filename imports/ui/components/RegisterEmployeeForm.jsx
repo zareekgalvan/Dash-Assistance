@@ -20,7 +20,7 @@ export default class RegisterEmployeeForm extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Phone:</label>
+                        <label htmlFor="phone">Phone:</label>
                         <input placeholder="Phone" type="tel" id="phone" className="form-control" required/>
                     </div>
 

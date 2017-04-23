@@ -73,10 +73,10 @@
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -96,5 +96,32 @@
 
 #map{
     height: 300px;
-    width: 300px;
+    width: 600px;
+    margin: auto
+}
+
+#customer-name{
+    text-align: center;
+}
+
+#accidentTime{
+    text-align: center;
+}
+
+#phone{
+    float: right;
+}
+
+#email{
+    float: left;
+}
+
+.expandedColumn{
+    text-align: center
+}
+
+.complete_button{
+    margin-top: 30px;
+    background-color: #087D73 !important;
+    float: center;
 }
