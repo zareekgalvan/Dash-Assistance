@@ -14,10 +14,7 @@ class ExpandedRequest extends Component {
     componentDidUpdate(){
         if (this.props.request[0] != null) {
             var latitude = this.props.request[0]['latitude']
-            latitude = latitude.substring(9, latitude.length - 1)
-
             var longitude = this.props.request[0]['longitude']
-            longitude = longitude.substring(9, longitude.length - 1)
 
             this.context.map.setView([latitude, longitude], 25)
             this.context.map.removeLayer(this.context.currentMarker)
