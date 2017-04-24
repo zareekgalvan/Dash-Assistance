@@ -27,7 +27,6 @@ class ShowRequests extends Component {
                         <th>Insurance Company</th>
                         <th>Policy Number</th>
                         <th>Status</th>
-                        <th>Expand</th>
                     </tr>
                 </thead>
                 <tbody>

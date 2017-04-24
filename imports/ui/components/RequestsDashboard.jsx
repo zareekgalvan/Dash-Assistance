@@ -31,15 +31,12 @@ class RequestsDashboard extends Component {
 
     render() {
         return (
-            <tr>
+            <tr className="request-row"onClick={this.openModal.bind(this)}>
                 <td>{this.props.request.name}</td>
                 <td>{this.props.request.phone}</td>
                 <td>{this.props.request.insuranceCompany}</td>
                 <td>{this.props.request.policyNumber}</td>
                 <td>{this.getRequestStatus()}</td>
-                <td>
-                    <button type="button" onClick={this.openModal.bind(this)}>Expand</button>
-                </td>
             </tr>
         );
     }
