@@ -7,7 +7,7 @@ import AppHeader from './AppHeader.jsx';
 
 class App extends Component {
     showUserNav(){
-        const user_icon = "/images/user-icon.png"
+        const user_icon = "images/user-icon.png"
         const login_icon = "images/login-icon.png"
         const register_icon = "images/register-icon.png"
 

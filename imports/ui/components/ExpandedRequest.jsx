@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Requests } from '../../api/requests.js';
+import { Employees } from '../../api/employees.js';
 
 class ExpandedRequest extends Component {
 
@@ -41,33 +42,71 @@ class ExpandedRequest extends Component {
         this.context.map.invalidateSize()
     }
 
+    getRequestStatus(){
+        if(this.props.request[0]['status'] == 0){
+            return(
+                <p>Unassigned</p>
+            )
+        }
+        else if(this.props.request[0]['status'] == 1){
+            return(
+                <p>Assigned</p>
+            )
+        }
+        else if(this.props.request[0]['status'] == 2){
+            return(
+                <p>Complete</p>
+            )
+        }
+    }
+
+    getSaveButton(){
+        if(this.props.request[0]['status'] == 0){
+            return(
+                <button type="submit" onClick={this.upgradeRequestStatus.bind(this)} className="btn btn-primary btn-block complete_button">Assign Request</button>
+            )
+        }
+        else if(this.props.request[0]['status'] == 1){
+            return(
+                <button type="submit" onClick={this.upgradeRequestStatus.bind(this)} className="btn btn-primary btn-block complete_button">Complete Request</button>
+            )
+        }
+    }
+
+    upgradeRequestStatus(){
+        if(this.props.request[0]['status'] == 0){
+            Requests.update(this.props.request[0]['_id'], {
+                $set: { status: 1 },
+            });
+        }
+        else if(this.props.request[0]['status'] == 1){
+            Requests.update(this.props.request[0]['_id'], {
+                $set: { status: 2 },
+            });
+        }
+    }
+
     render() {
         //only show information if it is loaded
         if (this.props.request[0] != null) {
-            console.log(this.props.request[0])
-
             return (
                 <div id="requestModal" className="custom-modal" display="none" style={{overflow: scroll}}>
                     <div class="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <span className="close" onClick={this.closeModal.bind(this)}>&times;</span>
-                            </div>
-
-                            <div className="col-md-12">
-                                <h2 id="customer-name">{this.props.request[0]['name']}</h2>
+                                <h2>{this.props.request[0]['name']}</h2>
+                                <div className = "exp-header-line">
+                                    <img src="images/black-phone.png" className="exp-icon"></img>
+                                    <span className="exp-header-text">{this.props.request[0]['phone']}</span>
+                                </div>
+                                <div className = "exp-header-line">
+                                    <img src="images/black-email.png" className="exp-icon"></img>
+                                    <span className="exp-header-text">{this.props.request[0]['email']}</span>
+                                </div>
                             </div>
 
                             <div className="col-md-6">
-                                <p id="phone">{this.props.request[0]['phone']}</p>
-                            </div>
-                            <div className="col-md-6">
-                                <p id="email">{this.props.request[0]['email']}</p>
-                            </div>
-
-                            <div className="col-md-12"></div>
-
-                            <div className="col-md-6 expandedColumn">
                                 <h4>Car Brand:</h4>
                                 <p>{this.props.request[0]['carBrand']}</p>
                                 <h4>Car Model:</h4>
@@ -76,20 +115,29 @@ class ExpandedRequest extends Component {
                                 <p>{this.props.request[0]['licensePlates']}</p>
                             </div>
 
-                            <div className="col-md-6 expandedColumn">
+                            <div className="col-md-6">
                                 <h4>Policy Number:</h4>
                                 <p>{this.props.request[0]['policyNumber']}</p>
-                                <h4>Notes:</h4>
-                                <p>{this.props.request[0]['notes']}</p>
+                                <div className="form-group">
+                                    <h4>Assigned To:</h4>
+                                    <select className="form-control" id="employee" required>
+                                        <option value="">Unassigned</option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <div className="col-md-12" id="accidentTime">
+                            <div className="col-md-12" id="exp-accidentTime">
                                 <h4>Request Date:</h4>
-                                <p>Sunday at 5:00 AM</p>
+                                <p>{this.props.request[0]['accidentTime'].toTimeString()}</p>
                             </div>
 
                             <div className="col-md-12">
                                 <div id="map" className="map"></div>
+                            </div>
+
+                            <div className="col-md-12" id="exp-accidentTime">
+                                <h4>Status:</h4>
+                                {this.getRequestStatus()}
                             </div>
 
                             <div className="modal-header"></div>
@@ -97,7 +145,7 @@ class ExpandedRequest extends Component {
                             <div className="modal-footer">
                                 <div className="col-md-4"></div>
                                 <div className="form-group col-md-4">
-                                    <button type="submit" className="btn btn-primary btn-block complete_button">Mark as complete</button>
+                                    {this.getSaveButton()}
                                 </div>
                             </div>
                         </div>
@@ -112,21 +160,17 @@ class ExpandedRequest extends Component {
                             <div className="modal-header">
                                 <span className="close" onClick={this.closeModal.bind(this)}>&times;</span>
                             </div>
-                            <div className="col-md-12"></div>
-                            <div className="col-md-6"></div>
-                            <div className="col-md-6"> </div>
-                            <div className="col-md-12"></div>
                             <div className="col-md-6"> </div>
                             <div className="col-md-6"></div>
                             <div className="col-md-12"></div>
                             <div className="col-md-12">
                                 <div id="map" className="map"></div>
                             </div>
+                            <div className="col-md-12"></div>
                             <div className="modal-header"> </div>
                             <div className="modal-footer">
                                 <div className="col-md-4"></div>
                                 <div className="form-group col-md-4">
-                                    <button type="submit" className="btn btn-primary btn-block complete_button">Mark as complete</button>
                                 </div>
                             </div>
                         </div>
@@ -139,10 +183,12 @@ class ExpandedRequest extends Component {
 
 ExpandedRequest.propTypes = {
     request: PropTypes.array.isRequired,
+    employees: PropTypes.array.isRequired
 };
 
 export default createContainer(() => {
     Meteor.subscribe('requests');
+    Meteor.subscribe('employees');
 
   // show modal if showModal is true
   if (Session.get('showModal')) {
@@ -152,7 +198,8 @@ export default createContainer(() => {
   }
 
   return {
-    request: Requests.find({"_id" : Session.get('requestId')}).fetch()
+    request: Requests.find({"_id" : Session.get('requestId')}).fetch(),
+    employees: Employees.find({"company" : ""}).fetch()
   };
 }, ExpandedRequest)
 

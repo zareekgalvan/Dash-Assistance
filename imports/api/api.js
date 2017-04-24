@@ -50,7 +50,7 @@ Meteor.methods({
             notes: "",
             assignedEmployee: "none",
             accidentTime: accidentTime,
-            status: "false",
+            status: 0,
             latitude: latitude,
             longitude: longitude
         });

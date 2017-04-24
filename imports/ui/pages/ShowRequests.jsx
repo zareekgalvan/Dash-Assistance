@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Requests } from '../../api/requests.js';
-
 import RequestsDashboard from '../components/RequestsDashboard';
 import ExpandedRequest from '../components/ExpandedRequest';
 
@@ -27,8 +26,7 @@ class ShowRequests extends Component {
                         <th>Phone</th>
                         <th>Insurance Company</th>
                         <th>Policy Number</th>
-                        <th>Completed</th>
-                        <th>Mark as Complete</th>
+                        <th>Status</th>
                         <th>Expand</th>
                     </tr>
                 </thead>

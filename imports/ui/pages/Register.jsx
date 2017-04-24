@@ -4,7 +4,6 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
 import { Companies } from '../../api/companies.js';
 import { browserHistory } from 'react-router';
-
 import RegisterForm from '../components/RegisterForm.jsx';
 
 class Register extends Component {
