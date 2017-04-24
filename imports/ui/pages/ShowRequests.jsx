@@ -7,12 +7,25 @@ import ExpandedRequest from '../components/ExpandedRequest';
 
 class ShowRequests extends Component {
     renderRequests() {
+        var filterValueArr = []
+
+        if($("#unassigned").is(":checked")){
+            filterValueArr.push(0)
+        }
+        if($("#assigned").is(":checked")){
+            filterValueArr.push(1)
+        }
+        if($("#complete").is(":checked")){
+            filterValueArr.push(2)
+        }
+
         return this.props.requests.map((request) => (
-            <RequestsDashboard key={request._id} request={request} />
+            <RequestsDashboard key={request._id} request={request} filterValue={filterValueArr}/>
         ));
     }
 
     filterRequests(){
+        this.forceUpdate()
     }
     
     render() {
