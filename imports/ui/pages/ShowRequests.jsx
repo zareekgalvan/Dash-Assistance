@@ -16,12 +16,13 @@ class ShowRequests extends Component {
         return (
         <div className="row">
             <header>
-            <h1>Request List</h1>
+                <h1 className="form_title">Request List</h1>
             </header>
 
             <table style={{border: "1px solid black"}} cellPadding="10" className="table">
                 <thead className="thead-inverse">
                     <tr>
+                        <th>Date</th>
                         <th>Customer Name</th>
                         <th>Phone</th>
                         <th>Insurance Company</th>

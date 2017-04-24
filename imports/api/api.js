@@ -48,7 +48,7 @@ Meteor.methods({
             carYear: profile['car_year'],
             licensePlates: profile['license_plates'],
             notes: "",
-            assignedEmployee: "none",
+            assignedEmployee: "None",
             accidentTime: accidentTime,
             status: 0,
             latitude: latitude,

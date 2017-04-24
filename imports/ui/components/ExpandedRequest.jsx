@@ -76,13 +76,35 @@ class ExpandedRequest extends Component {
     upgradeRequestStatus(){
         if(this.props.request[0]['status'] == 0){
             Requests.update(this.props.request[0]['_id'], {
-                $set: { status: 1 },
+                $set: { status: 1, assignedEmployee: $("#assigned-employee").val()},
             });
         }
         else if(this.props.request[0]['status'] == 1){
             Requests.update(this.props.request[0]['_id'], {
                 $set: { status: 2 },
             });
+        }
+    }
+
+    getEmployees() {
+        return this.props.employees.map((employee) => (
+            <option key={employee._id} value={employee.name}>{employee.name}</option>
+        ));
+    }
+
+    getAssignationDiv(){
+        if(this.props.request[0]['status'] == 0){
+            return(
+                <select className="form-control" id="assigned-employee" required>
+                    <option value="N/A">N/A</option>
+                    {this.getEmployees()}
+                </select>
+            )
+        }
+        else{
+            return(
+                <p>{this.props.request[0]['assignedEmployee']}</p>
+            )
         }
     }
 
@@ -120,9 +142,7 @@ class ExpandedRequest extends Component {
                                 <p>{this.props.request[0]['policyNumber']}</p>
                                 <div className="form-group">
                                     <h4>Assigned To:</h4>
-                                    <select className="form-control" id="employee" required>
-                                        <option value="">Unassigned</option>
-                                    </select>
+                                    {this.getAssignationDiv()}
                                 </div>
                             </div>
 

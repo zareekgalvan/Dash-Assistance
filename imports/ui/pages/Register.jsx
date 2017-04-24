@@ -87,7 +87,6 @@ class Register extends Component {
             let currentUserProfile = this.props.currentUser.profile;
 
             browserHistory.push('/profile');
-
         } else {
             return (
                 <div className="row">
