@@ -11,6 +11,9 @@ class ShowRequests extends Component {
             <RequestsDashboard key={request._id} request={request} />
         ));
     }
+
+    filterRequests(){
+    }
     
     render() {
         return (
@@ -18,6 +21,20 @@ class ShowRequests extends Component {
             <header>
                 <h1 className="form_title">Request List</h1>
             </header>
+
+            <div className="col-md-4"></div>
+            <div className="col-md-4">
+                <label htmlFor="unassigned" className="checkbox-inline request-filter">
+                    <input id="unassigned" type="checkbox" value="0" onChange={this.filterRequests.bind(this)}/>Unassigned
+                </label>
+                <label htmlFor="assigned" className="checkbox-inline request-filter">
+                    <input id="assigned" type="checkbox" value="1" onChange={this.filterRequests.bind(this)}/>Assigned
+                </label>
+                <label htmlFor="complete" className="checkbox-inline request-filter">
+                    <input id="complete" type="checkbox" value="2" onChange={this.filterRequests.bind(this)}/>Complete
+                </label>
+            </div>
+            <div className="col-md-4"></div>
 
             <table style={{border: "1px solid black"}} cellPadding="10" className="table">
                 <thead className="thead-inverse">
@@ -48,6 +65,6 @@ export default ShowRequests = createContainer(() => {
     Meteor.subscribe('requests');
     
     return {
-        requests: Requests.find({"insuranceCompany" : "HSBC"}, {sort: {accidentTime: -1}}).fetch()
+        requests: Requests.find({"insuranceCompany" : "HSBC", "status": {$in: [0,1,2]}}, {sort: {accidentTime: -1}}).fetch()
     };
 }, ShowRequests);

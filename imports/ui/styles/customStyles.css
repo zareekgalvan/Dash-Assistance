@@ -145,3 +145,10 @@
     background-color: #087D73;
     color: white;
 }
+
+.request-filter{
+    display:inline-block;
+    width:30%;
+    text-align:center;
+    padding-bottom: 15px
+}
