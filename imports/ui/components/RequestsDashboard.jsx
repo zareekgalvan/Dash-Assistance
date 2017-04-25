@@ -33,10 +33,9 @@ class RequestsDashboard extends Component {
         if($.inArray(this.props.request.status, this.props.filterValue) != -1){
             return (
                 <tr className="request-row"onClick={this.openModal.bind(this)}>
-                    <td>{this.props.request.accidentTime.toTimeString()}</td>
+                    <td>{this.props.request.accidentTime.toLocaleDateString()} at {this.props.request.accidentTime.toLocaleTimeString()}</td>
                     <td>{this.props.request.name}</td>
                     <td>{this.props.request.phone}</td>
-                    <td>{this.props.request.insuranceCompany}</td>
                     <td>{this.props.request.policyNumber}</td>
                     <td>{this.getRequestStatus()}</td>
                 </tr>

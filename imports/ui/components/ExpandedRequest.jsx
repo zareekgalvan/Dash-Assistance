@@ -145,7 +145,7 @@ class ExpandedRequest extends Component {
 
                             <div className="col-md-12" id="exp-accidentTime">
                                 <h4>Request Date:</h4>
-                                <p>{this.props.request[0]['accidentTime'].toTimeString()}</p>
+                                <p>{this.props.request[0]['accidentTime'].toLocaleDateString()} at {this.props.request[0]['accidentTime'].toLocaleTimeString()}</p>
                             </div>
 
                             <div className="col-md-12">
@@ -216,7 +216,7 @@ export default createContainer(() => {
 
   return {
     request: Requests.find({"_id" : Session.get('requestId')}).fetch(),
-    employees: Employees.find({"company" : ""}).fetch()
+    employees: Employees.find({"company" : Session.get('companyName')}).fetch()
   };
 }, ExpandedRequest)
 

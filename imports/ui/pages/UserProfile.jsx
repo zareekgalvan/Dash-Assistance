@@ -11,28 +11,30 @@ class UserProfile extends Component {
         if (this.props.currentUser) {
             return(
                 <div className="row">
-                    <h1 className="form_title">My Profile</h1>
-                    <div className="col-xs-4"></div>
-                    <div className="col-xs-4 custom_form">
-                        <ul>
-                            <li><h4>Name: </h4><h5>{this.props.currentUser.profile.name}</h5></li>
-                            <li><h4>Email: </h4><h5>{this.props.currentUser.emails[0].address}</h5></li>
-                            <li><h4>Phone: </h4><h5>{this.props.currentUser.profile.phone}</h5></li>
-                            <li><h4>Address: </h4><h5>{this.props.currentUser.profile.address}</h5></li>
-                            <li><h4>City: </h4><h5>{this.props.currentUser.profile.city}</h5></li>
-                            <li><h4>State: </h4><h5>{this.props.currentUser.profile.state}</h5></li>
-                            <li><h4>Insurance Company: </h4><h5>{this.props.currentUser.profile.company}</h5></li>
-                            <li><h4>Policy Number: </h4><h5>{this.props.currentUser.profile.policy_number}</h5></li>
-                            <li><h4>Car Brand: </h4><h5>{this.props.currentUser.profile.car_brand}</h5></li>
-                            <li><h4>Car Model: </h4><h5>{this.props.currentUser.profile.car_model}</h5></li>
-                            <li><h4>Car Year: </h4><h5>{this.props.currentUser.profile.car_year}</h5></li>
-                            <li><h4>License Plates: </h4><h5>{this.props.currentUser.profile.license_plates}</h5></li>
-                        </ul>
+                    <h1 className="form_title">{this.props.currentUser.profile.name}</h1>
+                    <div className="col-md-1"></div>
+                    <div className="col-md-3">
+                        <h4>Email: </h4><p>{this.props.currentUser.emails[0].address}</p>
+                        <h4>Phone: </h4><p>{this.props.currentUser.profile.phone}</p>
+                        <h4>Address: </h4><p>{this.props.currentUser.profile.address}</p>
+                        <h4>City: </h4><p>{this.props.currentUser.profile.city}, {this.props.currentUser.profile.state}</p>
+                    </div>
+                    <div className="col-md-1"></div>
+                    <div className="col-md-3">
+                        <h4>Insurance Company: </h4><p>{this.props.currentUser.profile.company}</p>
+                        <h4>Policy Number: </h4><p>{this.props.currentUser.profile.policy_number}</p>
+                    </div>
+                    <div className="col-md-1"></div>
+                    <div className="col-md-3">
+                        <h4>Car Brand: </h4><p>{this.props.currentUser.profile.car_brand}</p>
+                        <h4>Car Model: </h4><p>{this.props.currentUser.profile.car_model}</p>
+                        <h4>Car Year: </h4><p>{this.props.currentUser.profile.car_year}</p>
+                        <h4>License Plates: </h4><p>{this.props.currentUser.profile.license_plates}</p>
                     </div>
 
-                    <div className="col-xs-12"></div>
-                    <div className="col-xs-4"></div>
-                    <div className="form-group col-xs-4">
+                    <div className="col-md-12"></div>
+                    <div className="col-md-4"></div>
+                    <div className="form-group col-md-4">
                         <button type="submit" className="btn btn-primary btn-block submit_button" onClick={this.editUser}>Edit</button>
                     </div>
                 </div>

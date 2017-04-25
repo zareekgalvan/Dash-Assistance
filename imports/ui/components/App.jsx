@@ -12,7 +12,6 @@ class App extends Component {
         const register_icon = "images/register-icon.png"
 
         if (this.props.currentUser) {
-            console.log(this.props.currentUser)
             if (this.props.currentUser.profile.type == "user"){
                 return  (
                     <div>
@@ -37,11 +36,12 @@ class App extends Component {
                 );
             }
             else if (this.props.currentUser.profile.type == "insurance-company"){
+                Session.set('companyName', this.props.currentUser.profile.companyName);
                 return  (
                     <div>
                         <ul className="nav navbar-nav">
                             <li><a style={{color: 'white'}} href="/registeremployee">Register Employee</a></li>
-                            <li><a style={{color: 'white'}} href="/showrequests">Show Requests</a></li>
+                            <li><a style={{color: 'white'}} href="/showrequests">Request Dashboard</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
                             <li><a style={{color: 'white'}} href="/profile"><span><img src={user_icon} className="navbar_icon"></img></span>{this.props.currentUser.profile.companyName}</a></li>

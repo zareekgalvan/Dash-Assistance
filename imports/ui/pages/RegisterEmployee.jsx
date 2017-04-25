@@ -13,7 +13,7 @@ class RegisterEmployee extends Component {
             name = $("#name").val(),
             email = $("#email").val(),
             phone = $("#phone").val();
-            company = ""
+            company = Session.get('companyName')
 
         Employees.insert({
             name : name,

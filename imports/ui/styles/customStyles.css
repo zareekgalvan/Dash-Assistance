@@ -135,6 +135,7 @@
 
 .exp-header-line{
     vertical-align: middle;
+    margin-top: 5px;
 }
 
 .exp-header-text{
@@ -163,5 +164,3 @@ html, body{
 .defaultOption{
     color: gray;
 }
-
-select option:first-child { color:red; }
