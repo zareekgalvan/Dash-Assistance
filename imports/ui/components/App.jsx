@@ -12,14 +12,12 @@ class App extends Component {
         const register_icon = "images/register-icon.png"
 
         if (this.props.currentUser) {
+            console.log(this.props.currentUser)
             if (this.props.currentUser.profile.type == "user"){
                 return  (
                     <div>
-                        <ul className="nav navbar-nav">
-                            <li><a style={{color: 'white'}} href="/createrequest">Create Request</a></li>
-                        </ul>
                         <ul className="nav navbar-nav navbar-right">
-                            <li><a style={{color: 'white'}} href="/profile"><span><img src={user_icon} className="navbar_icon"></img></span>Profile</a></li>
+                            <li><a style={{color: 'white'}} href="/profile"><span><img src={user_icon} className="navbar_icon"></img></span>{this.props.currentUser.profile.name.split(' ')[0]}</a></li>
                             <li onClick={this.logout}><a style={{color: 'white'}} href="/login"><span><img src={login_icon} className="navbar_icon"></img></span>Log out</a></li>
                         </ul>
                     </div>
@@ -46,6 +44,7 @@ class App extends Component {
                             <li><a style={{color: 'white'}} href="/showrequests">Show Requests</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
+                            <li><a style={{color: 'white'}} href="/profile"><span><img src={user_icon} className="navbar_icon"></img></span>{this.props.currentUser.profile.companyName}</a></li>
                             <li onClick={this.logout}><a style={{color: 'white'}} href="/login"><span><img src={login_icon} className="navbar_icon"></img></span>Log out</a></li>
                         </ul>
                     </div>

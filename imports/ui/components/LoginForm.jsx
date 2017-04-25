@@ -11,12 +11,10 @@ class LoginForm extends Component {
                     <img src="images/green_logo.png" className="login_formLogo"></img>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email:</label>
                         <input placeholder="Email" type="email" id="email" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password:</label>
                         <input placeholder="Password" type="password" id="password" className="form-control" required/>
                     </div>
 

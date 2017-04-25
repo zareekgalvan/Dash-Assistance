@@ -38,13 +38,13 @@ class ShowRequests extends Component {
             <div className="col-md-4"></div>
             <div className="col-md-4">
                 <label htmlFor="unassigned" className="checkbox-inline request-filter">
-                    <input id="unassigned" type="checkbox" value="0" onChange={this.filterRequests.bind(this)}/>Unassigned
+                    <input id="unassigned" type="checkbox" value="0" onChange={this.filterRequests.bind(this)} defaultChecked/>Unassigned
                 </label>
                 <label htmlFor="assigned" className="checkbox-inline request-filter">
-                    <input id="assigned" type="checkbox" value="1" onChange={this.filterRequests.bind(this)}/>Assigned
+                    <input id="assigned" type="checkbox" value="1" onChange={this.filterRequests.bind(this)} defaultChecked/>Assigned
                 </label>
                 <label htmlFor="complete" className="checkbox-inline request-filter">
-                    <input id="complete" type="checkbox" value="2" onChange={this.filterRequests.bind(this)}/>Complete
+                    <input id="complete" type="checkbox" value="2" onChange={this.filterRequests.bind(this)} defaultChecked/>Complete
                 </label>
             </div>
             <div className="col-md-4"></div>

@@ -10,17 +10,14 @@ export default class RegisterEmployeeForm extends Component {
                 <div className="col-md-4 custom_form">
 
                     <div className="form-group">
-                        <label htmlFor="name">Name:</label>
                         <input placeholder="Name" type="text" id="name" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email:</label>
                         <input placeholder="Email" type="email" id="email" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">Phone:</label>
                         <input placeholder="Phone" type="tel" id="phone" className="form-control" required/>
                     </div>
 
