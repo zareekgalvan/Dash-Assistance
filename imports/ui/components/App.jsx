@@ -30,6 +30,7 @@ class App extends Component {
                             <li><a style={{color: 'white'}} href="/registerinsurancecompany">Register Insurance Company</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
+                            <li><a style={{color: 'white'}}><span><img src={user_icon} className="navbar_icon"></img></span>Administrator</a></li>
                             <li onClick={this.logout}><a style={{color: 'white'}} href="/login"><span><img src={login_icon} className="navbar_icon"></img></span>Log out</a></li>
                         </ul>
                     </div>
@@ -44,7 +45,7 @@ class App extends Component {
                             <li><a style={{color: 'white'}} href="/showrequests">Request Dashboard</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
-                            <li><a style={{color: 'white'}} href="/profile"><span><img src={user_icon} className="navbar_icon"></img></span>{this.props.currentUser.profile.companyName}</a></li>
+                            <li><a style={{color: 'white'}}><span><img src={user_icon} className="navbar_icon"></img></span>{this.props.currentUser.profile.companyName}</a></li>
                             <li onClick={this.logout}><a style={{color: 'white'}} href="/login"><span><img src={login_icon} className="navbar_icon"></img></span>Log out</a></li>
                         </ul>
                     </div>

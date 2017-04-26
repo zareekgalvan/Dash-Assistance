@@ -164,3 +164,11 @@ html, body{
 .defaultOption{
     color: gray;
 }
+
+.simulated-a{
+    color: white;
+    line-height: 20px;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}

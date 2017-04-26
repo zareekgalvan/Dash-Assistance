@@ -10,17 +10,14 @@ export default class RegisterAdminForm extends Component {
                 <div className="col-md-4 custom_form">
 
                     <div className="form-group">
-                        <label htmlFor="email">Email:</label>
                         <input placeholder="Email" type="email" id="email" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password:</label>
                         <input placeholder="Password" type="password" id="password" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="confirm-password">Confirm Password:</label>
                         <input placeholder="Confirm Password" type="password" id="confirm-password" className="form-control" required/>
                     </div>
 

@@ -41,7 +41,7 @@ class UserProfile extends Component {
             );
         } else {
             return (
-                <h1>PLEASE LOGIN TO SEE YOUR PROFILE INFORMATION!!</h1>
+                null
             );
         }
     }
