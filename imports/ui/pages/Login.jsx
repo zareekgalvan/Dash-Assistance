@@ -34,10 +34,16 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                    <h1 className="form_title">Log in to Pit Call</h1>
-                    <LoginForm submitBtnLabel="Login" submitAction={this.loginWithPassword} registerLink={this.getRegisterLink()}/>
-            </div>
+            <div className="middle_login_container">
+              <div className="login_container">
+                  <div className="col-md-6">
+                      <img src="images/green_logo.png" className="login_formLogo"></img>  
+                  </div>
+                  <div className="col-md-6">
+                      <LoginForm submitBtnLabel="Login" submitAction={this.loginWithPassword} registerLink={this.getRegisterLink()}/>
+                  </div>
+              </div>
+          </div>
         );
     }
 }

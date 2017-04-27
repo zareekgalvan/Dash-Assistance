@@ -49,7 +49,7 @@ class ShowRequests extends Component {
             </div>
             <div className="col-md-4"></div>
 
-            <table style={{border: "1px solid black"}} cellPadding="10" className="table">
+            <table cellPadding="10" className="table custom-table">
                 <thead className="thead-inverse">
                     <tr>
                         <th>Date</th>

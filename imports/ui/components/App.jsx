@@ -83,7 +83,7 @@ class App extends Component {
 
                 <AppHeader appTitle="Pit Call" userNav={this.showUserNav()}/>
 
-                <main className="container">
+                <main className="outer_login_container">
                     { this.props.children }
                 </main>
             </div>
