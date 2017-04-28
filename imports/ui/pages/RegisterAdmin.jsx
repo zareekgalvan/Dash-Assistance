@@ -22,23 +22,7 @@ class RegisterAdmin extends Component {
             $('#password').val("");
             $('#confirm-password').val("");
         } else {
-            Accounts.createUser(
-                {
-                    email: email,
-                    password: password,
-                    profile : {
-                        type: type
-                    }
-                },
-
-                (error) => {
-                    if (error) {
-                        console.error("there was an error: ", error);
-                    } else {
-                        console.log('Administrator Registered Succesfully');
-                    };
-                }
-            );
+           let result = Meteor.call('register.admin', {email: email, password: password, type: type});
 
             $("#email").val("")
             $("#password").val("")
