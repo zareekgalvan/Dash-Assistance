@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
 import { Companies } from '../../api/companies.js';
+import { browserHistory } from 'react-router';
 
 import RegisterInsuranceCompanyForm from '../components/RegisterInsuranceCompanyForm.jsx';
 
@@ -49,17 +50,36 @@ class RegisterInsuranceCompany extends Component {
                 companyName: companyName,
                 email: email,
                 phone: phone,
-        });
+            });
+
+            Meteor.logout();
+
+            browserHistory.push('/');
         }
     }
  
     render() {
-        return (
-            <div className="row">
-                    <h1 className="form_title">Register an Insurance Company</h1>
-                    <RegisterInsuranceCompanyForm submitBtnLabel="Register" submitAction={this.createInsuranceCompany}/>
-            </div>
-        );
+
+        if (Meteor.user() !== undefined) {
+            if (Meteor.user()) {
+                if (Meteor.user().profile.type == 'admin') {
+                    return (
+                        <div className="row">
+                            <h1 className="form_title">Register an Insurance Company</h1>
+                            <RegisterInsuranceCompanyForm submitBtnLabel="Register"
+                                                          submitAction={this.createInsuranceCompany}/>
+                        </div>
+                    );
+                } else {
+                    browserHistory.push('/forbidden');
+                }
+            }
+        } else {
+            return (
+                <div className="row"></div>
+            );
+            browserHistory.push('/forbidden');
+        }
     }
 }
 

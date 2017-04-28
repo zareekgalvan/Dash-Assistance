@@ -172,7 +172,7 @@ class ExpandedRequest extends Component {
         } else {
             return (
                 <div id="requestModal" className="custom-modal" display="none" style={{overflow: scroll}}>
-                    <div class="modal-dialog">
+                    <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <span className="close" onClick={this.closeModal.bind(this)}>&times;</span>

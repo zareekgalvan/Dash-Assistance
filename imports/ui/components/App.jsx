@@ -28,6 +28,7 @@ class App extends Component {
                         <ul className="nav navbar-nav">
                             <li><a style={{color: 'white'}} href="/registeradministrator">Register Administrator</a></li>
                             <li><a style={{color: 'white'}} href="/registerinsurancecompany">Register Insurance Company</a></li>
+                            <li><a style={{color: 'white'}} href="/showcompanies">View Registered Companies</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
                             <li><a style={{color: 'white'}}><span><img src={user_icon} className="navbar_icon"></img></span>Administrator</a></li>

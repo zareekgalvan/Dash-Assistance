@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
+import { browserHistory } from 'react-router';
 
 import RegisterAdminForm from '../components/RegisterAdminForm.jsx';
 
@@ -39,16 +40,34 @@ class RegisterAdmin extends Component {
                     };
                 }
             );
+
+            Meteor.logout();
+
+            browserHistory.push('/profile');
+
         }
     }
  
     render() {
-        return (
-            <div className="row">
-                    <h1 className="form_title">Register an Administrator</h1>
-                    <RegisterAdminForm submitBtnLabel="Register" submitAction={this.createAdmin}/>
-            </div>
-        );
+        // if (Meteor.user() !== undefined) {
+        //     if (Meteor.user()) {
+        //         if (Meteor.user().profile.type == 'admin') {
+                    return (
+                        <div className="row">
+                            <h1 className="form_title">Register an Administrator</h1>
+                            <RegisterAdminForm submitBtnLabel="Register" submitAction={this.createAdmin}/>
+                        </div>
+                    );
+    //             } else {
+    //                 browserHistory.push('/forbidden');
+    //             }
+    //         }
+    //     } else {
+    //         return (
+    //             <div classname="row"></div>
+    //         );
+    //         browserHistory.push('/forbidden');
+    //     }
     }
 }
 

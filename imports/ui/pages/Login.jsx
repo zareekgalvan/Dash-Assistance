@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import LoginForm from '../components/LoginForm.jsx';
+import { browserHistory } from 'react-router';
 
 class Login extends Component {
     getRegisterLink() {
@@ -27,30 +28,50 @@ class Login extends Component {
                 $("#error-message").show();
             } else {
                 if(Meteor.user()['profile']['type'] == 'user')
-                    window.location.replace("/profile");
+                    browserHistory.push("/profile");
                 else if(Meteor.user()['profile']['type'] == 'insurance-company')
-                    window.location.replace("/showrequests");
+                    browserHistory.push("/showrequests");
                 else if(Meteor.user()['profile']['type'] == 'admin')
-                    window.location.replace("/registerinsurancecompany");
+                    browserHistory.push("/registerinsurancecompany");
             }
         });
     }
 
 
     render() {
-        return (
-            <div className="middle_login_container">
-              <div className="login_container">
-                  <div className="col-md-6">
-                      <img src="images/green_logo.png" className="login_formLogo"></img>  
-                  </div>
-                  <div className="col-md-6">
-                      <LoginForm submitBtnLabel="Login" submitAction={this.loginWithPassword} registerLink={this.getRegisterLink()}/>
-                  </div>
-              </div>
-          </div>
-        );
+        if (this.props.currentUser) {
+            if(Meteor.user()['profile']['type'] == 'user')
+                browserHistory.push("/profile");
+            else if(Meteor.user()['profile']['type'] == 'insurance-company')
+                browserHistory.push("/showrequests");
+            else if(Meteor.user()['profile']['type'] == 'admin')
+                browserHistory.push("/registerinsurancecompany");
+        } else {
+            return (
+                <div className="middle_login_container">
+                    <div className="login_container">
+                        <div className="col-md-6">
+                            <img src="images/green_logo.png" className="login_formLogo"></img>
+                        </div>
+                        <div className="col-md-6">
+                            <LoginForm submitBtnLabel="Login" submitAction={this.loginWithPassword}
+                                       registerLink={this.getRegisterLink()}/>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 
-export default Login
+
+Login.PropTypes = {
+    currentUser: PropTypes.object,
+    companies: PropTypes.array.isRequired
+};
+
+export default Login = createContainer(() => {
+    return {
+        currentUser: Meteor.user(),
+    };
+}, Login);
