@@ -26,11 +26,12 @@ input.login-email.form-control, input.login-password.form-control {
 }
 
 input.login-email.form-control:focus, input.login-password.form-control:focus {
-  border-bottom: 2px solid rgba(8,125,115, 0.4);
-  border-bottom-color: #087D73 !important;
+  border-bottom: 2px solid;
+  border-bottom-color: #087D73;
 }
 
 .error-credentials{
+    border-bottom: 2px solid;
     border-bottom-color: rgb(214,78,57) !important;
 }
 

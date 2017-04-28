@@ -16,7 +16,7 @@ class ExpandedRequest extends Component {
             var latitude = this.props.request[0]['latitude']
             var longitude = this.props.request[0]['longitude']
 
-            this.context.map.setView([latitude, longitude], 25)
+            this.context.map.setView([latitude, longitude], 17)
             this.context.map.removeLayer(this.context.currentMarker)
             this.context.currentMarker = L.marker([latitude, longitude])
             this.context.map.addLayer(this.context.currentMarker)
@@ -26,7 +26,7 @@ class ExpandedRequest extends Component {
     }
 
     componentDidMount(){
-        this.context.map = L.map('map').setView([0,0], 25);
+        this.context.map = L.map('map').setView([0,0], 17);
 
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	        maxZoom: 19,

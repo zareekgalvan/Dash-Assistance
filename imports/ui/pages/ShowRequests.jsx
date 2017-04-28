@@ -52,11 +52,11 @@ class ShowRequests extends Component {
             <table cellPadding="10" className="table custom-table">
                 <thead className="thead-inverse">
                     <tr>
-                        <th>Date</th>
-                        <th>Customer Name</th>
-                        <th>Phone</th>
-                        <th>Policy Number</th>
-                        <th>Status</th>
+                        <th style={{width: "25%"}}>Date</th>
+                        <th style={{width: "25%"}}>Customer Name</th>
+                        <th style={{width: "20%"}}>Phone</th>
+                        <th style={{width: "20%"}}>Policy Number</th>
+                        <th style={{width: "10%"}}>Status</th>
                     </tr>
                 </thead>
                 <tbody>
