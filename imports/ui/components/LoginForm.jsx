@@ -3,6 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 class LoginForm extends Component {
+    removeErrorMessage(){
+        $("#password").removeClass("error-credentials");
+        $("#error-message").hide();
+    }
+
     render() {
         return (
             <form onSubmit={this.props.submitAction}>
@@ -17,8 +22,12 @@ class LoginForm extends Component {
                     <div className="form-group form-with-icon clearfix">
                         <i className="fa fa-lock fa-2x form-group-icon" aria-hidden="true"></i>
                         <span className="form-group-input">
-                          <input placeholder="Password" type="password" id="password" className="login-password form-control" required/>
+                          <input onClick={this.removeErrorMessage.bind(this)} placeholder="Password" type="password" id="password" className="login-password form-control" required/>
                         </span>
+                    </div>
+
+                    <div className="wrong-password">
+                        <p id="error-message" className="error-message">The username or password you entered is incorrect</p>
                     </div>
 
                     <div className="col-md-12">{this.props.registerLink}</div>

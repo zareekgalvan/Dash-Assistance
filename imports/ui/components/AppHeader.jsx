@@ -12,7 +12,7 @@ class AppHeader extends Component {
                         <img src="images/white_logo.png" className="navbar_logo"></img>
                     </a>
                     <div className="navbar-header">
-                        <a style={{color: 'white'}} className="navbar-brand" href="/login">Pit Call</a>
+                        <a style={{color: 'white'}} className="navbar-brand">Pit Call</a>
                     </div>
                     {this.props.userNav}
                 </div>

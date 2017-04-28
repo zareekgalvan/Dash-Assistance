@@ -23,14 +23,19 @@ class Login extends Component {
             password
         , (error) => {
             if (error) {
-                console.error('Login Error!!', error);
+                $("#password").addClass("error-credentials");
+                $("#error-message").show();
             } else {
-                console.log('LOGGED IN SUCCESSFULLY!!');
-                console.log(JSON.stringify(Meteor.user()));
-                window.location.replace("/profile");
+                if(Meteor.user()['profile']['type'] == 'user')
+                    window.location.replace("/profile");
+                else if(Meteor.user()['profile']['type'] == 'insurance-company')
+                    window.location.replace("/showrequests");
+                else if(Meteor.user()['profile']['type'] == 'admin')
+                    window.location.replace("/registerinsurancecompany");
             }
         });
     }
+
 
     render() {
         return (
