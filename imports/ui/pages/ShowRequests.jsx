@@ -63,7 +63,7 @@ class ShowRequests extends Component {
         return (
         <div className="row">
             <div id="new-request-alert" className="alert alert-warning alert-dismissable custom-alert">
-                <a href="#" onClick={this.closeNewRequestAlert.bind(this)} className="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <a onClick={this.closeNewRequestAlert.bind(this)} className="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>New Request!</strong> A new request has been made by a customer.
             </div>
 

@@ -54,8 +54,8 @@ class EditUser extends Component {
 	render() {
 		return (
 			<div className="row">
-                        <h1 className="form_title">Edit User Information</h1>
-                        <EditUserForm submitBtnLabel="Save" cancelBtnLabel="Cancel" submitAction={this.editUser} insuranceCompanies={this.getInsuranceCompanies()}/>
+                <h1 className="form_title">Edit User Information</h1>
+                <EditUserForm submitBtnLabel="Save" cancelBtnLabel="Cancel" submitAction={this.editUser} insuranceCompanies={this.getInsuranceCompanies()}/>
 			</div>
 		);
 	}
