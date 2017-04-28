@@ -39,14 +39,29 @@ class RegisterAdmin extends Component {
                     };
                 }
             );
+
+            $("#email").val("")
+            $("#password").val("")
+            $("#confirm-password").val("")
+
+            $("#register-alert").show()
         }
+    }
+
+    closeAlert(){
+        $("#register-alert").hide()
     }
  
     render() {
         return (
             <div className="row">
-                    <h1 className="form_title">Register an Administrator</h1>
-                    <RegisterAdminForm submitBtnLabel="Register" submitAction={this.createAdmin}/>
+                <div id="register-alert" className="alert alert-success alert-dismissable custom-alert">
+                    <a href="#" onClick={this.closeAlert.bind(this)} className="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong> Registered a new Administrator.
+                </div>
+
+                <h1 className="form_title">Register an Administrator</h1>
+                <RegisterAdminForm submitBtnLabel="Register" submitAction={this.createAdmin}/>
             </div>
         );
     }

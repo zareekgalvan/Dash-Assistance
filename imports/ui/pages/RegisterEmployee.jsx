@@ -21,11 +21,26 @@ class RegisterEmployee extends Component {
             phone : phone,
             company : company
         });
+
+        $("#name").val("")
+        $("#email").val("")
+        $("#phone").val("")
+
+        $("#register-alert").show()
+    }
+
+    closeAlert(){
+        $("#register-alert").hide()
     }
  
     render() {
         return (
             <div className="row">
+                    <div id="register-alert" className="alert alert-success alert-dismissable custom-alert">
+                        <a href="#" onClick={this.closeAlert.bind(this)} className="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong> Registered a new employee.
+                    </div>
+
                     <h1 className="form_title">Register an Employee</h1>
                     <RegisterEmployeeForm submitBtnLabel="Register" submitAction={this.createEmployee}/>
             </div>

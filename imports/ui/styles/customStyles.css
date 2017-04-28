@@ -217,7 +217,6 @@ input.login-email.form-control:focus, input.login-password.form-control:focus {
 
 .request-filter{
     display:inline-block;
-    width:30%;
     text-align:center;
     padding-bottom: 15px
 }
@@ -243,4 +242,10 @@ html, body{
 .custom-table{
     width: 90% !important;
     margin: 0 auto;
+}
+
+.custom-alert{
+    width: 97% !important;
+    margin: 0 auto;
+    display: none;
 }

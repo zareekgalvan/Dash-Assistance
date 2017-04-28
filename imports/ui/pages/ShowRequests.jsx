@@ -25,18 +25,57 @@ class ShowRequests extends Component {
     }
 
     filterRequests(){
+        Session.set('shouldNotify', false);
+        Session.set('filter', true);
         this.forceUpdate()
+        this.shouldNotify()
+    }
+
+    closeNewRequestAlert(){
+        $("#new-request-alert").hide()
+    }
+
+    componentDidUpdate(){
+        if(Session.get('shouldNotify')){
+            $("#new-request-alert").show()
+        }
+        Session.set('filter', false);
+        this.shouldNotify()
+    }
+
+    shouldNotify(){
+        if($("#shouldNotify").is(":checked") && !Session.get('filter')){
+            Session.set('shouldNotify', true);
+        }
+        else{
+            Session.set('shouldNotify', false);
+        }
+    }
+
+    componentDidMount(){
+        Session.set('shouldNotify', false);
+        Session.set('filter', false);
+        Session.set('showModal', false);
+        Session.set('requestId', "");
     }
     
     render() {
         return (
         <div className="row">
+            <div id="new-request-alert" className="alert alert-warning alert-dismissable custom-alert">
+                <a href="#" onClick={this.closeNewRequestAlert.bind(this)} className="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>New Request!</strong> A new request has been made by a customer.
+            </div>
+
             <header>
-                <h1 className="form_title">Request List</h1>
+                <h1 className="form_title">Request Dashboard</h1>
             </header>
 
             <div className="col-md-4"></div>
             <div className="col-md-4">
+                <label htmlFor="shouldNotify" className="checkbox-inline request-filter">
+                    <input id="shouldNotify" type="checkbox" onChange={this.shouldNotify.bind(this)}/>Notifications
+                </label>
                 <label htmlFor="unassigned" className="checkbox-inline request-filter">
                     <input id="unassigned" type="checkbox" value="0" onChange={this.filterRequests.bind(this)} defaultChecked/>Unassigned
                 </label>
@@ -77,6 +116,6 @@ export default ShowRequests = createContainer(() => {
     Meteor.subscribe('requests');
     
     return {
-        requests: Requests.find({"insuranceCompany" : Session.get('companyName'), "status": {$in: [0, 1, 2]}}, {sort: {accidentTime: -1}}).fetch()
+        requests: Requests.find({"insuranceCompany" : Session.get('companyName'), "status": {$in: [0, 1, 2]}}, {sort: {accidentTime: -1}}).fetch(),
     };
 }, ShowRequests);
