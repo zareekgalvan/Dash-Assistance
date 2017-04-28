@@ -23,51 +23,36 @@ class RegisterAdmin extends Component {
             $('#password').val("");
             $('#confirm-password').val("");
         } else {
-            Accounts.createUser(
-                {
-                    email: email,
-                    password: password,
-                    profile : {
-                        type: type
-                    }
-                },
 
-                (error) => {
-                    if (error) {
-                        console.error("there was an error: ", error);
-                    } else {
-                        console.log('Administrator Registered Succesfully');
-                    };
-                }
-            );
+            let result = Meteor.call('register.admin', {email: email, password: password, type: type});
 
-            Meteor.logout();
+            //browserHistory.push('/');
 
-            browserHistory.push('/profile');
+            console.log(result);
 
         }
     }
  
     render() {
-        // if (Meteor.user() !== undefined) {
-        //     if (Meteor.user()) {
-        //         if (Meteor.user().profile.type == 'admin') {
+        if (Meteor.user() !== undefined) {
+            if (Meteor.user()) {
+                if (Meteor.user().profile.type == 'admin') {
                     return (
                         <div className="row">
                             <h1 className="form_title">Register an Administrator</h1>
                             <RegisterAdminForm submitBtnLabel="Register" submitAction={this.createAdmin}/>
                         </div>
                     );
-    //             } else {
-    //                 browserHistory.push('/forbidden');
-    //             }
-    //         }
-    //     } else {
-    //         return (
-    //             <div classname="row"></div>
-    //         );
-    //         browserHistory.push('/forbidden');
-    //     }
+                } else {
+                    browserHistory.push('/forbidden');
+                }
+            }
+        } else {
+            return (
+                <div classname="row"></div>
+            );
+            browserHistory.push('/forbidden');
+        }
     }
 }
 

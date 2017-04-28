@@ -14,11 +14,12 @@ import RegisterInsuranceCompany from '../ui/pages/RegisterInsuranceCompany.jsx'
 import RegisterAdmin from '../ui/pages/RegisterAdmin.jsx'
 import Forbidden from '../ui/pages/Forbidden.jsx';
 import ShowCompanies from '../ui/pages/ShowCompanies.jsx';
+import ShowAdmins from '../ui/pages/ShowAdmins.jsx';
 
 
 export const renderRoutes = () => (
     <Router history={browserHistory}>
-        <Route path="/" component={App}>
+        <Route path='/' components={App}>
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
             <Route path="/profile" component={UserProfile}/>
@@ -27,6 +28,7 @@ export const renderRoutes = () => (
             <Route path="/createrequest" component={CreateRequest}/>
             <Route path="/showrequests" component={ShowRequests}/>
             <Route path="/showcompanies" component={ShowCompanies}/>
+            <Route path="/showadmins" component={ShowAdmins}/>
             <Route path="/registerinsurancecompany" component={RegisterInsuranceCompany}/>
             <Route path="/registeradministrator" component={RegisterAdmin}/>
             <Route path="/forbidden" component={Forbidden}/>

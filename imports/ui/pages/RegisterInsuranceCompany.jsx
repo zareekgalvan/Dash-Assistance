@@ -26,35 +26,10 @@ class RegisterInsuranceCompany extends Component {
             $('#password').val("");
             $('#confirm-password').val("");
         } else {
-            Accounts.createUser(
-                {
-                    email: email,
-                    password: password,
-                    profile : {
-                        companyName: companyName,
-                        phone: phone,
-                        type: type
-                    }
-                },
 
-                (error) => {
-                    if (error) {
-                        console.error("there was an error: ", error);
-                    } else {
-                        console.log('Insurance Company Registered Succesfully');
-                    };
-                }
-            );
+            Meteor.call('register.insurance', {email: email, password: password, companyName: companyName, phone: phone, type: type});
 
-            Companies.insert({
-                companyName: companyName,
-                email: email,
-                phone: phone,
-            });
-
-            Meteor.logout();
-
-            browserHistory.push('/');
+            browserHistory.push('/showcompanies');
         }
     }
  
