@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
+import Login from '../pages/Login.jsx';
 
 import AppHeader from './AppHeader.jsx';
 
@@ -78,16 +79,31 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <div id="app-container" className="container-fluid page_overrideWidth">
+        if(window.location.href == "http://localhost:3000/"){
+            return (
+                <div id="app-container" className="container-fluid page_overrideWidth">
 
-                <AppHeader appTitle="Pit Call" userNav={this.showUserNav()}/>
+                    <AppHeader appTitle="Pit Call" userNav={this.showUserNav()}/>
 
-                <main className="outer_login_container">
-                    { this.props.children }
-                </main>
-            </div>
-        );
+                    <main className="outer_login_container">
+                        { this.props.children }
+                        <Login/>
+                    </main>
+                </div>
+            );
+        }
+        else{
+            return (
+                <div id="app-container" className="container-fluid page_overrideWidth">
+
+                    <AppHeader appTitle="Pit Call" userNav={this.showUserNav()}/>
+
+                    <main className="outer_login_container">
+                        { this.props.children }
+                    </main>
+                </div>
+            );
+        }
     }
 }
 

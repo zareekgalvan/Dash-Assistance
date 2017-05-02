@@ -8,7 +8,7 @@ class AppHeader extends Component {
         return (
             <nav className="navbar navbar-inverse custom_navbar">
                 <div className="container-fluid">
-                    <a href="/login">
+                    <a>
                         <img src="images/white_logo.png" className="navbar_logo"></img>
                     </a>
                     <div className="navbar-header">
